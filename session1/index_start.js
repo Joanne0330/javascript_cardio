@@ -60,8 +60,35 @@ function capitalizeLetters(str) {
 
 // CHALLENGE 5: MAX CHARACTER
 // Return the character that is most common in a string
-// ex. maxCharacter('javascript') == 'a'
-function maxCharacter(str) {}
+// ex. maxCharacter('javascripttttt') == 't'
+
+function maxCharacter(str) {
+  const charMap = {}
+  let maxNum = 0;
+  let maxChar = '';
+  
+  str.split('').forEach(function(char) {// loop and set each array item into key/value pair
+    if(charMap[char]) { //if the char exist in the charMap as key
+      charMap[char]++; //the value goes up
+    } else {
+      charMap[char] = 1; //if it doesn't appear more than once, then set to just 1
+    }
+  });
+    console.log(charMap) // gives { j: 1, a: 2, v: 1, s: 1, c: 1, r: 1, i: 1, p: 1, t: 5 }
+  
+  for(let char in charMap){ //looping the object which each letter (char) is the keys,
+
+    if(charMap[char] > maxNum){ //during the loop, it looks at the value and compare with 0 to begin with
+      // console.log(charMap[char]) // gives 1 2 5, which is the values of 
+      maxNum = charMap[char]; //set the 0 to the highest charMap value which is 5
+      maxChar = char;
+    }
+
+  } //because this is a loop, so the value only compares with the maxNum if it's greater
+  
+  return maxChar;
+
+}
 
 
 
@@ -87,6 +114,6 @@ function fizzBuzz() {
 
 
 // Call Function
-const output = capitalizeLetters('i loVe javascript');
+const output = maxCharacter('javascripttttt');
 
 console.log(output);
