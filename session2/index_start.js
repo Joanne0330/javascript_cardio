@@ -18,7 +18,19 @@ function longestWord(sen) {
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {}
+function chunkArray(arr, len) {
+  const bigArray = [];
+  let i = 0;
+
+  while(i < arr.length) {
+
+    bigArray.push(arr.slice(i, i + len)) //second time we want to start index 3 to 6 which is increment by amound of len
+    i += len
+  }
+
+  return bigArray
+
+}
 
 // CHALLENGE 3: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
@@ -41,6 +53,6 @@ function isAnagram(str1, str2) {}
 function letterChanges(str) {}
 
 // Call Function
-const output = longestWord('Hello there my name is Brad');
+const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
 
 console.log(output);
