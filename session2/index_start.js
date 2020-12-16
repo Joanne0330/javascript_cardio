@@ -72,9 +72,27 @@ function cleanText(text) {
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-function letterChanges(str) {}
+function letterChanges(str) {
+
+  function upcaseVowel(vowel) {
+    return vowel.toUpperCase();
+  }
+
+  function addOneChar(char) {   //step 2: replacing the letter
+    if (char === 'z') {
+      return 'A'
+    } else {
+      const newChar = String.fromCharCode(char.charCodeAt() + 1);
+      return newChar.replace(/e|i|o|u/g, upcaseVowel );  //step 3: calling another function to capitalize vowels
+    }
+  }
+
+  const changedStr = str.toLowerCase().replace(/[a-z]/g, addOneChar);  //step 1: replace all letter
+
+  return changedStr 
+}
 
 // Call Function
-const output = isAnagram('Dormitoryz', 'dirty room##');
+const output = letterChanges('Hello there z');
 
 console.log(output);
