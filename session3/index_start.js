@@ -2,7 +2,19 @@
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-function addAll() {}
+function addAll(...arg) {
+    // console.log(arg)
+    //solution 1: 
+    return arg.reduce((accumulator, currentValue) => accumulator + currentValue)
+
+    //solution: 2
+    // var total = 0;
+    // for (let i = 0; i < arg.length; i++) {
+    //     total += arg[i];
+    // }
+    // return total;
+}
+
 
 // CHALLENGE 2: SUM ALL PRIMES
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
@@ -39,3 +51,8 @@ function missingLetters() {}
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
 function evenOddSums() {}
+
+
+
+const output = addAll(2,5,6,7);
+console.log(output);
