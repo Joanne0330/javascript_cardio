@@ -26,7 +26,11 @@ function sumAllPrimes() {}
 // Remove from the array whatever is in the following arguments. Return the leftover numbers in an array
 // ex. seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6) == [3, 4, 'hello']
 
-function seekAndDestroy() {}
+function seekAndDestroy(arr, ...rest) {  
+    const filteredArr = arr.filter(item => !rest.includes(item))  //using rest array to filter, therefore we need to keep whatever that's NOT in rest
+    
+    return filteredArr
+}
 
 // CHALLENGE 4: SORT BY HEIGHT
 // Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees.
@@ -50,9 +54,21 @@ function missingLetters() {}
 // ex.
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
-function evenOddSums() {}
+function evenOddSums(arr) {
+    evenSum = 0;
+    oddSum = 0;
+    arr.forEach(num => {
+        if(num % 2 == 0 ) {
+            evenSum += num
+        } else {
+            oddSum += num
+        }
+    })
+    return [evenSum, oddSum]
+}
 
 
 
-const output = addAll(2,5,6,7);
+
+const output = evenOddSums([50, 60, 60, 45, 71])
 console.log(output);
