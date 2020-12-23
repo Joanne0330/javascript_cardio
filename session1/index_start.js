@@ -117,3 +117,11 @@ function fizzBuzz() {
 const output = maxCharacter('javascripttttt');
 
 console.log(output);
+
+module.exports = {
+  reverseString,
+  isPalindrome,
+  reverseInt,
+  capitalizeLetters,
+  maxCharacter
+};
