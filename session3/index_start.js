@@ -20,7 +20,19 @@ function addAll(...arg) {
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
 // ex. sumAllPrimes(10) == 17
 
-function sumAllPrimes() {}
+function sumAllPrimes(num) { ///My solution only works for number 1-10. first problem comes as counting 25 as a prime which is incorrect
+    const arr = [2, 3];
+    for(let i = 4; i <= num; i++) {     //try to get [2,3,5,7]
+        if(i % 2 !== 0 && i % 3 !== 0) {
+            arr.push(i)
+        }
+    }
+    console.log(arr)
+    const sumAllPrime = arr.reduce((accumulator, currentValue) => {
+         return accumulator + currentValue
+    })
+    return sumAllPrime
+}
 
 // CHALLENGE 3: SEEK & DESTROY
 // Remove from the array whatever is in the following arguments. Return the leftover numbers in an array
@@ -70,5 +82,5 @@ function evenOddSums(arr) {
 
 
 
-const output = evenOddSums([50, 60, 60, 45, 71])
+const output = sumAllPrimes(30)
 console.log(output);
