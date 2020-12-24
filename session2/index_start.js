@@ -4,9 +4,9 @@
 
 function longestWord(sen) {
   // SOLUTION 1 - Return a single longest word
-  const senArr = sen.split(' ')
+  const senArr = sen.replace(/[\W_]/g, ' ').split(' ')
   const sortedArr = senArr.sort((a, b) => b.length - a.length)
-  const longestWords = sortedArr.filter(word => word.length === sortedArr[0].length)
+  const longestWords = sortedArr.filter(word => word.length === sortedArr[0].length).join('')
 
   return longestWords
   // SOLUTION 2 - Return an array and include multiple words if they have the same length
@@ -96,3 +96,9 @@ function letterChanges(str) {
 const output = letterChanges('Hello there z');
 
 console.log(output);
+
+module.exports = {
+  longestWord,
+  chunkArray,
+  flattenArray
+}
