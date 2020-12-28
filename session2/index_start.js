@@ -100,5 +100,7 @@ console.log(output);
 module.exports = {
   longestWord,
   chunkArray,
-  flattenArray
+  flattenArray, 
+  isAnagram,
+  letterChanges
 }
