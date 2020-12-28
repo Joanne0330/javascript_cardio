@@ -84,3 +84,10 @@ function evenOddSums(arr) {
 
 const output = sumAllPrimes(30)
 console.log(output);
+
+module.exports = {
+    addAll,
+    sumAllPrimes,
+    seekAndDestroy,
+    evenOddSums
+}
