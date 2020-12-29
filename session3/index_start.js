@@ -2,6 +2,8 @@
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
+const { handlePotentialSyntaxError } = require("@jest/transform");
+
 function addAll(...arg) {
     // console.log(arg)
     //solution 1: 
@@ -50,7 +52,12 @@ function seekAndDestroy(arr, ...rest) {
 // a = [-1, 150, 190, 170, -1, -1, 160, 180]
 // sortByHeight(a) == [-1, 150, 160, 170, -1, -1, 180, 190]
 
-function sortByHeight() {}
+function sortByHeight(arr) {
+    const posArr = arr.filter(num => num !== -1).sort((a,b) => a - b)  //gives: [150, 160, 170, 180, 190]
+    //take the origianl arr and insert the posArr if not -1
+    const sorted = arr.map(value => value !== -1 ? posArr.shift() : value )
+    return sorted
+}
 
 // CHALLENGE 5: MISSING LETTERS
 // Find the missing letter in the passed letter range and return it. If all letters are present, return undefined
@@ -81,13 +88,14 @@ function evenOddSums(arr) {
 
 
 
-
-const output = sumAllPrimes(30)
+const a = [-1, 150, 190, 170, -1, -1, 160, 180]
+const output = sortByHeight(a)
 console.log(output);
 
 module.exports = {
     addAll,
     sumAllPrimes,
     seekAndDestroy,
-    evenOddSums
+    evenOddSums,
+    sortByHeight
 }
