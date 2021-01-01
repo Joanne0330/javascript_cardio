@@ -71,7 +71,23 @@ function sortByHeight(arr) {
 // missingLetters("abcdefghjklmno") == "i"
 // missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
 
-function missingLetters() {}
+function missingLetters(str) {
+    let arr = str.split('');
+    let compareNum = 97;
+    let missing;
+    console.log(str.charCodeAt(0)) //  this tells that the first letter a is 97
+
+    arr.map((letter, index) => {
+        if(str.charCodeAt(index) == compareNum ) {
+            compareNum += 1;
+        } else {
+            missing = String.fromCharCode(compareNum)
+        }
+    });
+    
+    return missing;
+}
+
 
 // CHALLENGE 6: EVEN & ODD SUMS
 // Take in an array and return an array of the sums of even and odd numbers
@@ -94,7 +110,7 @@ function evenOddSums(arr) {
 
 
 
-const output = sumAllPrimes(30)
+const output = missingLetters("abce")
 console.log(output);
 
 module.exports = {
@@ -102,5 +118,6 @@ module.exports = {
     sumAllPrimes,
     seekAndDestroy,
     evenOddSums,
-    sortByHeight
+    sortByHeight, 
+    missingLetters
 }

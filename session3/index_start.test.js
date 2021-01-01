@@ -4,7 +4,8 @@ const {
     sumAllPrimes, 
     seekAndDestroy,
     evenOddSums,
-    sortByHeight
+    sortByHeight,
+    missingLetters
 } = require('./index_start')
 
 // ex. addAll(2,5,6,7) === 20
@@ -37,4 +38,22 @@ test('sorts the arr ascending except those marked -1', () => {
     const a = [-1, 150, 190, 170, -1, -1, 160, 180];
     const result = [-1, 150, 160, 170, -1, -1, 180, 190];
     expect(sortByHeight(a)).toEqual(result);
+})
+
+// missingLetters("abce") == "d"
+// missingLetters("abcdefghjklmno") == "i"
+// missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
+test('missingLetter can find a missing letter', () => {
+    const input = 'abce';
+    expect(missingLetters(input)).toBe('d')
+})
+
+test('missingLetter can find a missing letter in longer strings input', () => {
+    const input = "abcdefghjklmno";
+    expect(missingLetters(input)).toBe('i')
+})
+
+test('missingLetter cannot find a letter as no letter is missing', () => {
+    const input = "abcdefghijklmnopqrstuvwxyz";
+    expect(missingLetters(input)).toBe(undefined)
 })
